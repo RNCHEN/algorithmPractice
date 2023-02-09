@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // var removeElement = function (nums, val) {
+    //   let k = 0;
+    //   for (let i = 0; i < nums.length; i++) {
+    //     if (nums[i] !== val) {
+    //       nums[k++] = nums[i];
+    //     }
+    //   }
+    //   return k;
+    // };
+    // nums = [3, 2, 2, 3], val = 3;
+    // nums.length= removeElement(nums, val);
+    // console.log(nums)
+
+    // var sortedSquares = function (nums) {
+    //   let low = 0;
+    //   let high = nums.length - 1;
+    //   let numHigh = high
+    //   let newNum = [];
+    //   while (low <= high) {
+    //     if (nums[low] * nums[low] <= nums[high] * nums[high]) {
+    //       newNum[numHigh] = nums[high] * nums[high];
+    //       numHigh--;
+    //       high--;
+    //     } else {
+    //       newNum[numHigh] = nums[low] * nums[low];
+    //       low++;
+    //       numHigh--;
+
+    //     }
+    //   }
+    //   return newNum;
+    // };
+
+    // nums = [-4,-1,0,3,10]
+    // let final = sortedSquares(nums);
+    // console.log(final)
+
+    // var minSubArrayLen = function (target, nums) {
+    //   let flag = 0;
+    //   let length = 0;
+    //   let lenghtFinal = 100;
+    //   for (; flag < nums.length; flag++) {
+    //     let newFlag = flag;
+    //     let temp = nums[flag];
+    //     if (temp >= target) {
+    //       return 1;
+    //     } else {
+    //       while (temp < target && newFlag < nums.length-1) {
+    //         temp = temp + nums[newFlag + 1];
+    //         newFlag++;
+    //         length = newFlag - flag + 1;
+    //       }
+    //       if (temp < target) {
+    //         return 0;
+    //       }
+    //       if (length < lenghtFinal) lenghtFinal = length;
+    //     }
+    //   }
+    //   return lenghtFinal;
+    // };
+
+//     var minSubArrayLen = function (target, nums) {
+// // FOR LOOP O(N^2)
+//       let subLength = 0
+//       let Final = [];
+//       for(let paLength = 0;paLength < nums.length;paLength++ ){
+//         if(nums[paLength]>= target) {
+//           return 1;
+//         }else{
+//           subLength = paLength + 1;
+//           let tmp = nums[paLength];
+//           while( subLength < nums.length){
+//             tmp = tmp + nums[subLength];
+//             if(tmp>=target){
+//               Final.push(subLength - paLength +1) 
+//               break;
+//             }
+//             subLength++
+//           }
+//           if(tmp < target) return 0;
+//         }
+//       }
+//       return Math.min(Final)
+  
+//     }
+
+    var minSubArrayLen = function (target, nums) {
+      let left=0;
+      let right=0;
+      let ans = Infinity;
+      let sum =0;
+// < or A= 
+// condition is not left < right 
+// the condition is end < len
+      while(right < nums.length){
+        sum+=nums[right];
+        while(sum>=target){
+            ans = Math.min(ans,right-left+1);
+            sum-=nums[left];
+            left++;
+        }
+        right++;
+      }
+      return ans==Infinity?0:ans
+    }
+
+
+
+    target = 11;
+    nums = [1, 1, 1];
+
+    console.log(minSubArrayLen(target, nums));
+  </script>
+</html>
