@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .box {
+        width: 100%;
+        height: 50px;
+        background-color: #999;
+    }
+
+    .logo {
+        float: left;
+        line-height: 50px;
+        text-align: center;
+        padding: 0 40px;
+        font-size: 20px;
+        color: skyblue;
+    }
+
+    .mulu>li {
+        position: relative;
+        float: left;
+        padding: 0 40px;
+        margin: 0 2px;
+        line-height: 50px;
+        text-align: center;
+        background-color: gray;
+    }
+
+    .mulu>li:hover {
+        background-color: #000;
+        color: #fff;
+    }
+
+    .muli-next {
+        position: absolute;
+        top: 52px;
+        left: 0;
+        width: 100%;
+        /* height: 300px; */
+        background-color: rgb(14, 177, 155);
+        display: none;
+    }
+
+    .muli-next li {
+        display: block;
+        box-sizing: border-box;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: skyblue;
+        margin: 6px;
+    }
+
+    .muli-next li:hover {
+        background-color: springgreen;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="logo">
+            Linbo~
+        </div>
+        <div class="item">
+            <ul class="mulu">
+                <li id="items">
+                    Javascript
+                    <ul class="muli-next">
+                        <li>基础</li>
+                        <li>进阶</li>
+                    </ul>
+                </li>
+                <li id="items">
+                    HTML
+                    <ul class="muli-next">
+                        <li>基础</li>
+                        <li>HTML5新增</li>
+                    </ul>
+                </li>
+                <li id="items">
+                    CSS
+                    <ul class="muli-next">
+                        <li>css</li>
+                        <li>CSS3</li>
+                        <li>综合</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        // 获取元素
+        var item = document.querySelectorAll('#items');
+        var block = document.querySelectorAll('.muli-next');
+        for (var i = 0; i < item.length; i++) {
+            // 自定义类  获取索引号
+            item[i].setAttribute('index', i);
+            // 注册事件(鼠标经过触发)
+            item[i].onmouseover = function () {
+                // 获取对应的索引号
+                var index = this.getAttribute('index');
+                // 通过上面索引号使对应的下拉列表显示
+                block[index].style.display = 'block';
+            }
+        };
+        for (var i = 0; i < item.length; i++) {
+            item[i].onmouseout = function () {
+                // 鼠标离开所有的下拉列表隐藏
+                for (var i = 0; i < item.length; i++) {
+                    block[i].style.display = 'none';
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>

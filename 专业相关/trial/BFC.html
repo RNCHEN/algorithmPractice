@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin边距重叠</title>
+    <style>
+        .box {
+            margin: 10px;
+            width: 100px;
+            height: 100px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+         <div class="box"></div>
+        <p><div class="box"></div></p>
+    </div>
+</body>
+<script>
+
+// new Promise((resolve, reject) => {
+//   console.log('new Promise')
+//   resolve('success')
+// })
+// console.log('end')
+
+// 宏任务和微任务
+//  
+
+// async,await 
+// async function async1(){
+//    console.log('async1 start');
+//     await async2();
+//     console.log('async1 end')
+// }
+// async function async2(){
+//     console.log('async2')
+// }
+
+// console.log('script start');
+// async1();
+// console.log('script end')
+
+
+
+// console.time('start');
+
+// setTimeout(function() {
+//   console.log(2);
+// }, 10);
+
+
+// new Promise(function(resolve) {
+//   console.log(3);
+//   resolve();
+//   console.log(4);
+// }).then(function() {
+//   console.log(5);
+//   console.log('6666')
+// });
+
+// console.log(6);
+
+
+// console.log(8);
+
+
+console.log('script start')
+
+async function async1() {
+await async2()
+console.log('async1 end')
+}
+async function async2() {
+console.log('async2 end')
+}
+async1()
+
+setTimeout(function() {
+console.log('setTimeout')
+}, 0)
+
+new Promise(resolve => {
+console.log('Promise')
+resolve()
+})
+.then(function() {
+console.log('promise1')
+})
+.then(function() {
+console.log('promise2')
+})
+
+console.log('script end')
+ // 旧版输出如下，但是请继续看完本文下面的注意那里，新版有改动
+// script start => async2 end => Promise => script end => promise1 => promise2 => async1 end => setTimeout
+
+</script>
+</html>

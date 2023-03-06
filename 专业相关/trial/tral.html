@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <style>
+    .class1 {
+        height: 400px;
+        width: 400px;
+        background-color: rgb(194, 202, 156);
+        position: fixed;
+        margin-left: 100px;
+    }
+
+    .class2 {
+        height: 100px;
+        width: 100px;
+        background-color: aqua;
+        position: absolute;
+    }
+</style>
+
+<body>
+    <div class="class1">123</div>
+    <div class="class2">456</div>
+
+</body> -->
+<style type="text/css">
+    html,
+    body,
+    div {
+        margin: 0;
+        padding: 0
+    }
+
+    .box {
+        margin: 20px auto;
+        width: 200px;
+        height: 200px;
+
+        background: #ddf;
+    }
+
+    .content {
+        line-height: 200px;
+        text-align: center;
+        overflow: hidden;
+    }
+</style>
+
+<div class="box">
+    <div class="content">
+        This is text
+    </div>
+</div>
+<script>
+    // function resolveAfter2Seconds(x) {
+    //     return new Promise(resolve => {
+    //         setTimeout(() => {
+    //             resolve(x);
+    //         }, 2000);
+    //     });
+    // }
+
+    // async function f1() {
+    //     var x = await resolveAfter2Seconds(10);
+    //     console.log(x); // 10
+    //     setTimeout(() => {
+    //             console.log('in the async');
+    //         }, 2000);
+    //     var y = await resolveAfter2Seconds(30);
+    //     console.log(y); // 10
+    // }
+    // f1();
+    // console.log(20)
+
+    // let p1 = new Promise((resolve, reject) => {
+    //     resolve('成功')
+    //     reject('失败')
+    // })
+    // console.log('p1', p1)
+
+    // setTimeout(() => {
+    //         console.log('666')
+    //     }, 0)
+    // const p2 = new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //         reject('失败')
+    //     }, 0)
+    //     console.log('123')
+    // }).then(res => console.log(res), err => {
+    //     console.log('777',err)
+    //     setTimeout(() => {
+    //         console.log('667')
+    //     }, 0)
+    //     console.log('888',err)
+    // })
+    // console.log('321')
+    console.log('script start')
+
+    async function async1() {
+        await async2()
+        console.log('async1 end')
+    }
+    async function async2() {
+        console.log('async2 end')
+        // return Promise.resolve().then(() => {
+        //     console.log('async2 end1')
+            
+        // })
+        setTimeout(function () {
+                console.log('where should I ')
+            }, 0)
+    }
+    async1()
+
+    setTimeout(function () {
+        console.log('setTimeout')
+    }, 0)
+
+    new Promise(resolve => {
+        console.log('Promise')
+        resolve()
+    })
+        .then(function () {
+            console.log('promise1')
+        })
+        .then(function () {
+            console.log('promise2')
+        })
+
+    console.log('script end')
+
+</script>
+
+</html>

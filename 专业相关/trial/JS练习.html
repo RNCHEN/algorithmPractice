@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 作用域
+    // function Foo() {
+    //     var i = 0;
+    //     console.log('out i =', i) //这个就很明显了
+    //     return function () {
+    //         console.log(' i = ', i)
+    //         document.write(i++);
+    //     }
+
+    // }
+
+    // var f1 = Foo(),
+    //     f2 = Foo();
+
+    // f1();
+    // f1();
+    // f1();
+
+    // // 上级作用域
+    // var a = 10
+
+    // function foo() {
+    //     console.log('aaaa=', a)
+    // }
+
+    // function sum() {
+    //     var a = 20
+    //     foo()
+    // }
+
+    // sum()
+
+// // 块级作用域
+//     if (true) {
+//         var a = 1;
+//     }
+
+//     console.log('aaaaa',a); // 结果??? 
+//     if (true) {
+//         let a = 1;
+//     }
+
+//     console.log(a); // 结果??? 
+
+
+    // var n = 10
+    // function fn() {
+    //     var n = 20
+    //     function f() {
+    //         n++;
+    //         console.log(n)
+    //     }
+    //     f();
+    //     return f
+    // }
+
+    // var x = fn()
+    // x();
+    // console.log('x =  typeOf', typeof (x))
+    // console.log('x() = ', x())
+
+
+    // // 闭包
+    // function createCounter() {
+    //     let counter = 0
+    //     const myFunction = function () {
+    //         counter = counter + 1
+    //         return counter
+    //     }
+    //     return myFunction
+    // }
+    // const increment = createCounter()
+    // const c1 = increment()
+    // const c2 = increment()
+    // const c3 = increment()
+    // console.log('example increment', c1, c2, c3)
+
+    // // 我对闭包的理解
+    // function myPacket(){
+    //     var variable = 0;
+
+    //     console.log('variable',variable);
+
+    //     function inSide(){
+    //         variable++ ;
+    //         console.log('variable inSide',variable);
+    //     }
+    //     return inSide;
+    // }
+
+    // var out = myPacket();
+
+    // out();
+    // out();
+    // myPacket()
+    for(let nn = 0;nn <1;nn++){
+        console.log('in',nn)
+    }
+    console.log('outSide',nn)
+    
+
+
+</script>
+
+</html>

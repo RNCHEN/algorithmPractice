@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>position</title>
+    <style>
+        .main {
+            /* display: flex; */
+            height: 200px;
+            /* position: fixed; */
+            width: 200px;
+            background-color: aqua;
+            left: 300px;
+        }
+
+        .left {
+            position: absolute;
+            left: 0;
+            /* width: 300px; */
+            background-color: red;
+        }
+
+        .main>div {
+            background-color: rgb(0, 255, 76);
+        }
+
+        .center {
+            /* position: absolute; */
+            left: 300px;
+            right: 300px;
+            background-color: blue;
+        }
+
+        .right {
+            /* position: absolute; */
+            right: 0;
+            /* width: 300px; */
+            background-color: #3A2CAC;
+        }
+
+        p {
+            background-color: blue;
+            /* height: 100px; */
+        }
+
+        span {
+            background-color: red;
+            height: 100px;
+            width: 1000px;
+            /* 宽度在这里是没有用的 那个网易还非说高度可以宽度不行 */
+        }
+
+        .showFloat {
+            width: 1000px;
+            background-color: blueviolet;
+        }
+
+        .showFloatChild {
+            height: 200px;
+            width: 200px;
+            background-color: blanchedalmond;
+            /* float: left; */
+        }
+
+        input {
+            width: 500px;
+            background-color: bisque;
+            height: 100px;
+        }
+
+        .overlap {
+            /* display: inline-block; */
+            height: 400px;
+            width: 400px;
+            background-color: rgb(31, 224, 160);
+        }
+
+        .child1 {
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            background-color: #3A2CAC;
+            margin-top: 10px;
+            margin-bottom: 50px;
+        }
+
+        .child2 {
+            height: 100px;
+            width: 100px;
+            background-color: #857dbd;
+            margin-top: 50px;
+            margin-bottom: 15px;
+        }
+
+        .overlap-horizon {
+            /* display: inline-block; */
+            height: 400px;
+            width: 400px;
+            background-color: rgb(103, 236, 194);
+        }
+
+        .child1-h {
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            background-color: #3A2CAC;
+            margin-right: 50px;
+            margin-top: 10px;
+            margin-bottom: 50px;
+        }
+
+        .child2-h {
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            background-color: #857dbd;
+            margin-top: 50px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 三栏布局 -->
+
+    <div class="main">
+        <div class="left">左</div>
+        <!-- div和p的区别 -->
+        <p>文字</p>
+        <p>12333333333333333</p>
+        <div>左</div>
+        <div>左</div>
+        <h2>
+            66666666666
+            <span>
+                55555
+            </span>
+        </h2>
+    </div>
+    <!-- 这个是浮动 脱流 父元素高度坍塌 -->
+    <!-- 看水平居中问题 -->
+    <!-- 更改 showFloatChild即可-->
+    <div class="showFloat">
+        <div class="showFloatChild">123321</div>
+    </div>
+    <!-- 这是个行内块 -->
+    <!-- 不会自动换行，有宽和高 -->
+    输入<input type="text" name="fname">
+    <!-- 这个是margin重叠问题 -->
+    <div class="overlap">
+        <div class="child1">child1</div>
+        <div class="child2">child2</div>
+    </div>
+    <!-- 左右方向不会有margin重叠 -->
+    <div class="overlap-horizon">parent-h
+        <div class="child1-h">child1-h</div>
+        <div class="child2-h">child2-h</div>
+     
+    </div>
+
+</body>
+
+
+
+<script>
+
+    new Promise(function (resolve, reject) {
+        console.log("Run");
+    }).then(
+        (val) => {
+            console.log("345", val)
+        },
+        (val) => {
+            console.log("567", val)
+        }
+    );
+
+    setTimeout(() => {
+        console.log(2)
+    }, 0)
+    console.log("123");
+    // Promise.reject(
+    //     () => {
+    //         console.log(3)
+    //         return 5
+    //     }
+    // ).then(
+    //     (val) => {
+    //         console.log(4, val)
+    //         return 6
+    //     }
+    // ).catch(
+    //     (val) => {
+    //         console.log(5,val)
+    //     }
+    // ).finally(
+    //     (val) => {
+    //         console.log(6, val)
+    //     }
+    // )
+
+
+</script>
+
+</html>
